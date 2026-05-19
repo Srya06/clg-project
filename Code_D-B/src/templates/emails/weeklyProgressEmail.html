@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Weekly Progress Report</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .container { max-width: 580px; margin: 40px auto; background: #fff; border-radius: 8px; overflow: hidden; }
+    .header { background: #1a1a2e; padding: 32px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 22px; }
+    .body { padding: 32px; color: #333; line-height: 1.6; }
+    .score-box { background: #f0f0ff; border-left: 4px solid #6c63ff; padding: 16px 20px; border-radius: 4px; margin: 20px 0; }
+    .score-box .score { font-size: 42px; font-weight: bold; color: #6c63ff; line-height: 1; }
+    .score-box .label { font-size: 14px; color: #666; margin-top: 4px; }
+    .stat-row { display: flex; gap: 16px; margin: 16px 0; }
+    .stat { flex: 1; background: #fafafa; border: 1px solid #eee; padding: 12px; border-radius: 6px; text-align: center; }
+    .stat strong { display: block; font-size: 22px; color: #1a1a2e; }
+    .stat span { font-size: 12px; color: #999; }
+    .cta { display: inline-block; margin-top: 24px; padding: 12px 28px; background: #6c63ff; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    .footer { padding: 16px 32px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 Week {{week}} Progress Report</h1>
+    </div>
+    <div class="body">
+      <p>Hi <strong>{{name}}</strong>,</p>
+      <p>Here's how you did this week. Keep it up — consistency is how skills are built.</p>
+      <div class="score-box">
+        <div class="score">{{score}}%</div>
+        <div class="label">Overall Completion</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <strong>{{completed}}</strong>
+          <span>Tasks Completed</span>
+        </div>
+        <div class="stat">
+          <strong>{{total}}</strong>
+          <span>Total Tasks</span>
+        </div>
+      </div>
+      <p>Keep working on your roadmap to improve your score before next week's report.</p>
+      <a href="{{link}}" class="cta">View My Roadmap</a>
+    </div>
+    <div class="footer">
+      <p>This is an automated weekly report from Code DB. Unsubscribe anytime from your profile settings.</p>
+    </div>
+  </div>
+</body>
+</html>

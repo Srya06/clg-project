@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Your Email — Academ OS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #0a0a0a;
+      color: #e5e7eb;
+    }
+    .wrapper { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
+    .card {
+      background: linear-gradient(145deg, #111827, #1a1a2e);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+      padding: 40px 40px 32px;
+      text-align: center;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: rgba(255,255,255,0.6); font-weight: 400; }
+    .header-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 6px;
+    }
+    .body { padding: 40px; }
+    .greeting {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f3f4f6;
+      margin-bottom: 12px;
+    }
+    .text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #9ca3af;
+      margin-bottom: 32px;
+    }
+    .otp-box {
+      background: rgba(29, 78, 216, 0.12);
+      border: 1px solid rgba(29, 78, 216, 0.3);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .otp-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #6b7280;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .otp-code {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: 12px;
+      background: linear-gradient(135deg, #60a5fa, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .otp-expiry {
+      font-size: 12px;
+      color: #6b7280;
+      margin-top: 12px;
+    }
+    .warning {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 13px;
+      color: #f87171;
+      margin-bottom: 32px;
+    }
+    .footer {
+      padding: 24px 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+    }
+    .footer-text { font-size: 12px; color: #4b5563; line-height: 1.8; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <!-- Header -->
+      <div class="header">
+        <div class="logo">Academ<span>OS</span></div>
+        <div class="header-sub">AI-Powered Academic Platform</div>
+      </div>
+
+      <!-- Body -->
+      <div class="body">
+        <p class="greeting">Hey {{name}}, verify your email 👋</p>
+        <p class="text">
+          You're one step away from accessing your AI-powered academic dashboard.
+          Use the code below to verify your email address.
+        </p>
+
+        <!-- OTP -->
+        <div class="otp-box">
+          <div class="otp-label">Your Verification Code</div>
+          <div class="otp-code">{{otp}}</div>
+          <div class="otp-expiry">⏱ Expires in 10 minutes</div>
+        </div>
+
+        <!-- Security warning -->
+        <div class="warning">
+          🔒 Never share this code with anyone. Academ OS will never ask for your OTP.
+        </div>
+
+        <p class="text">
+          If you didn't create an account, you can safely ignore this email.
+          This code will expire automatically.
+        </p>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <p class="footer-text">
+          © 2025 Academ OS • AI-Powered Learning Platform<br />
+          This is an automated message, please do not reply.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap Reminder</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .container { max-width: 580px; margin: 40px auto; background: #fff; border-radius: 8px; overflow: hidden; }
+    .header { background: #0f3460; padding: 32px; text-align: center; }
+    .header h1 { color: #fff; margin: 0; font-size: 22px; }
+    .body { padding: 32px; color: #333; line-height: 1.6; }
+    .highlight { background: #fff8e1; border-left: 4px solid #ffb300; padding: 14px 18px; border-radius: 4px; margin: 20px 0; font-size: 15px; }
+    .cta { display: inline-block; margin-top: 24px; padding: 12px 28px; background: #0f3460; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    .footer { padding: 16px 32px; font-size: 12px; color: #999; border-top: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📌 Week {{week}} — Don't Lose Your Streak</h1>
+    </div>
+    <div class="body">
+      <p>Hey there,</p>
+      <p>You have <strong>{{pending}} pending task(s)</strong> left in your Week {{week}} roadmap. It looks like you haven't been active recently — let's fix that.</p>
+      <div class="highlight">
+        ⚡ Every day you skip makes the next one harder. Open your roadmap and complete at least one task today.
+      </div>
+      <p>Small consistent progress beats intense bursts. You've got this.</p>
+      <a href="{{link}}" class="cta">Continue My Roadmap →</a>
+    </div>
+    <div class="footer">
+      <p>You are receiving this because you have an active roadmap on Code DB. Manage your notification preferences in your profile settings.</p>
+    </div>
+  </div>
+</body>
+</html>

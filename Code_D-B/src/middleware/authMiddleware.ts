@@ -1,0 +1,69 @@
+import jwt from 'jsonwebtoken';
+import { promisify } from 'util';
+import { Request, Response, NextFunction } from 'express';
+import { User } from '../models';
+import { AppError, catchAsync } from '../utils';
+
+interface JwtPayload {
+  id: string;
+  iat: number;
+  exp: number;
+}
+
+export const protect = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    // 1) Getting token and check if it's there
+    let token: string | undefined;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith('Bearer')
+    ) {
+      token = req.headers.authorization.split(' ')[1];
+    }
+
+    if (!token) {
+      return next(
+        new AppError(
+          'You are not logged in! Please log in to get access.',
+          401
+        )
+      );
+    }
+
+    // 2) Verification token
+    // Using a type assertion because promisify with jwt.verify can be tricky to type perfectly
+    const decoded = (await promisify<string, string>(jwt.verify)(
+      token,
+      process.env.JWT_SECRET!
+    )) as unknown as JwtPayload;
+
+    // 3) Check if user still exists
+    const currentUser = await User.findById(decoded.id);
+    if (!currentUser) {
+      return next(
+        new AppError(
+          'The user belonging to this token does no longer exist.',
+          401
+        )
+      );
+    }
+
+    // 4) Grant access to protected route
+    req.user = currentUser;
+    next();
+  }
+);
+
+export const restrictTo = (...roles: string[]) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    if (!req.user || !roles.includes(req.user.role)) {
+      return next(
+        new AppError(
+          'You do not have permission to perform this action',
+          403
+        )
+      );
+    }
+    next();
+  };
+};
