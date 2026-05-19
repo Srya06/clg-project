@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { z } from "zod";
 import { Shield, Mail, Lock, AlertTriangle, Eye, EyeOff } from "lucide-react";
@@ -16,7 +16,7 @@ const hodLoginSchema = z.object({
 });
 type HodLoginValues = z.infer<typeof hodLoginSchema>;
 
-export default function HodLoginPage() {
+function HodLoginPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
@@ -223,5 +223,13 @@ export default function HodLoginPage() {
         </p>
       </motion.div>
     </div>
+  );
+}
+
+export default function HodLoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-[#080808] flex items-center justify-center text-white">Loading...</div>}>
+      <HodLoginPageInner />
+    </Suspense>
   );
 }

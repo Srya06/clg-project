@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { loginSchema, LoginValues } from "@/validations/auth.schema";
 import { Button } from "@/components/ui/button";
@@ -21,7 +21,7 @@ import { Input } from "@/components/ui/input";
 import { SplineScene } from "@/components/ui/splite";
 import { ArrowLeft, BrainCircuit, Lock, Mail, AlertTriangle } from "lucide-react";
 
-export default function LoginPage() {
+function LoginPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { toast } = useToast();
@@ -197,5 +197,13 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="flex w-full h-full items-center justify-center bg-black text-white">Loading...</div>}>
+      <LoginPageInner />
+    </Suspense>
   );
 }
