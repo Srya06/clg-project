@@ -7,7 +7,7 @@ const unlinkAsync = promisify(fs.unlink);
 const renameAsync = promisify(fs.rename);
 
 class UploadService {
-  async saveFile(file: Express.Multer.File, destination: string): Promise<string> {
+  async saveFile(file: any, destination: string): Promise<string> {
     try {
       if (!fs.existsSync(destination)) {
         fs.mkdirSync(destination, { recursive: true });

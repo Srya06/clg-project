@@ -18,7 +18,7 @@ export const monitorStudent = catchAsync(async (req: Request, res: Response) => 
     throw new AppError('You do not have permission to access this analysis', 403);
   }
 
-  const analysis = await agentOrchestrator.monitorStudent(studentId);
+  const analysis = await agentOrchestrator.monitorStudent(studentId as string);
 
   res.status(200).json({
     success: true,

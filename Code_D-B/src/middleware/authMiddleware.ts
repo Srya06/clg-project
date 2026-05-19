@@ -31,11 +31,10 @@ export const protect = catchAsync(
     }
 
     // 2) Verification token
-    // Using a type assertion because promisify with jwt.verify can be tricky to type perfectly
-    const decoded = (await promisify<string, string>(jwt.verify)(
+    const decoded = jwt.verify(
       token,
       process.env.JWT_SECRET!
-    )) as unknown as JwtPayload;
+    ) as unknown as JwtPayload;
 
     // 3) Check if user still exists
     const currentUser = await User.findById(decoded.id);

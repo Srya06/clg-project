@@ -1,5 +1,5 @@
 class FileValidatorService {
-  validateResumeFile(file?: Express.Multer.File): boolean {
+  validateResumeFile(file?: any): boolean {
     if (!file) {
       throw new Error('No file provided');
     }
@@ -14,7 +14,7 @@ class FileValidatorService {
     return true;
   }
 
-  checkFileSize(file: Express.Multer.File | undefined, maxSize: number): boolean {
+  checkFileSize(file: any | undefined, maxSize: number): boolean {
     if (!file) {
       throw new Error('No file provided');
     }

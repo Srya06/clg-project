@@ -35,11 +35,15 @@ export const sendRoadmapReminders = async (): Promise<number> => {
       const lastUpdate = (roadmap as any).updatedAt || (roadmap as any).createdAt;
       if (isWithinDays(lastUpdate, 2)) continue; // recently active — skip
 
-      const pendingTasks = roadmap.tasks.filter((t) => !t.isCompleted);
+      const currentWeekNum = roadmap.currentWeek || 1;
+      const currentWeekData = roadmap.weeks.find((w) => w.weekNumber === currentWeekNum);
+      if (!currentWeekData) continue;
+
+      const pendingTasks = currentWeekData.tasks.filter((t) => !t.isCompleted);
       if (pendingTasks.length === 0) continue;
 
       const roadmapData = {
-        weekNumber: roadmap.weekNumber,
+        weekNumber: currentWeekNum,
         pendingCount: pendingTasks.length,
         roadmapId: roadmap._id,
       };
@@ -51,7 +55,7 @@ export const sendRoadmapReminders = async (): Promise<number> => {
       await notificationService.createNotification({
         userId: student._id,
         title: 'Roadmap Reminder',
-        message: `You have ${pendingTasks.length} pending task(s) in Week ${roadmap.weekNumber}. Keep the momentum going!`,
+        message: `You have ${pendingTasks.length} pending task(s) in Week ${currentWeekNum}. Keep the momentum going!`,
         type: NOTIFICATION_TYPE.REMINDER as any,
       });
 

@@ -29,7 +29,7 @@ const ALLOWED_EXTS = new Set(['.pdf', '.docx', '.doc']);
 
 const fileFilter = (
   req: Request,
-  file: Express.Multer.File,
+  file: any,
   cb: FileFilterCallback
 ): void => {
   const ext = path.extname(file.originalname).toLowerCase();
@@ -85,7 +85,7 @@ export const handleResumeUpload = (
 const certStorage = multer.memoryStorage();
 const ALLOWED_CERT_MIMES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 
-const certFileFilter = (req: any, file: Express.Multer.File, cb: any) => {
+const certFileFilter = (req: any, file: any, cb: any) => {
   if (ALLOWED_CERT_MIMES.has(file.mimetype)) {
     cb(null, true);
   } else {
@@ -110,7 +110,7 @@ export const handleCertificateUpload = (req: Request, res: Response, next: NextF
  * CSV Upload for Marks and Attendance
  */
 const csvStorage = multer.memoryStorage();
-const csvFileFilter = (req: any, file: Express.Multer.File, cb: any) => {
+const csvFileFilter = (req: any, file: any, cb: any) => {
   const ext = path.extname(file.originalname).toLowerCase();
   if (ext === '.csv' || file.mimetype === 'text/csv') {
     cb(null, true);
