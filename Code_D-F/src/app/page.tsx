@@ -69,16 +69,6 @@ export default function LandingPage() {
         {/* Navigation Bar */}
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6 backdrop-blur-md bg-black/20 border-b border-white/5">
            <div className="flex items-center gap-4">
-              <div className="h-10 w-10 bg-gradient-to-br from-cyan-400 to-indigo-600 rounded-full flex items-center justify-center overflow-hidden border border-white/10 shadow-lg shadow-cyan-500/20">
-                 <img 
-                   src="/logo.jpg" 
-                   alt="MIT Logo" 
-                   className="w-full h-full object-cover" 
-                   onError={(e) => {
-                     (e.target as any).src = "https://ui-avatars.com/api/?name=MIT+AI&background=06b6d4&color=fff";
-                   }}
-                 />
-              </div>
               <div className="flex flex-col">
                  <span className="text-sm font-black tracking-tighter text-white">Government science college hassan</span>
                  <span className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest leading-none">STUDENT PORTAL</span>
@@ -294,9 +284,6 @@ export default function LandingPage() {
         <footer className="py-20 px-8 border-t border-white/5">
            <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
               <div className="flex items-center gap-4 opacity-50">
-                 <div className="h-10 w-10 bg-white p-1 rounded-full grayscale">
-                    <img src="/logo.jpg" alt="Logo" className="w-full h-full object-contain" />
-                 </div>
                  <div className="flex flex-col">
                     <span className="text-sm font-black tracking-tighter text-white">Government science college hassan</span>
                     <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-none">STUDENT PORTAL</span>

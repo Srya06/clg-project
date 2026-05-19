@@ -65,16 +65,6 @@ export default function LandingPage() {
       <nav className="fixed top-0 w-full z-50 glass border-b border-white/5 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="relative w-12 h-12 bg-white rounded-full p-1 shadow-2xl shadow-blue-500/20">
-              <img 
-                src="/logo.png" 
-                alt="MIT Mysore Logo" 
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://ui-avatars.com/api/?name=MIT+AI&background=0D8ABC&color=fff";
-                }}
-              />
-            </div>
             <div>
               <h1 className="text-xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
                 Government science college hassan
@@ -276,7 +266,6 @@ export default function LandingPage() {
       <footer className="py-20 border-t border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="MIT" className="w-8 h-8 opacity-50" />
             <span className="text-gray-500 font-medium">© 2026 Student Portal.</span>
           </div>
           <div className="flex gap-8 text-gray-500 text-sm">
