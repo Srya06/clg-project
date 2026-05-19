@@ -1,6 +1,0 @@
-{
-  "buildCommand": "cd Code_D-F && npm install && npm run build",
-  "outputDirectory": "Code_D-F/.next",
-  "installCommand": "cd Code_D-F && npm install",
-  "framework": "nextjs"
-}
