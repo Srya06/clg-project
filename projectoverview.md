@@ -1,4 +1,4 @@
-# 🧠 GSC Hassan AI-Powered Student Portal
+# 🧠 AI-Powered Student Portal
 ### AI-Based Personalized Recommendation & Student Performance Analysis System
 > **One-Line Pitch:** "Our system uses multi-agent AI to personalize learning, analyze academic risks, and evaluate students based on real-world skills, not just marks."
 
